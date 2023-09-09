@@ -1,5 +1,3 @@
-console.log("Challenge 1");
-
 // data 1
 const weightMarks1 = 78;
 const hightMarks1 = 1.69;
