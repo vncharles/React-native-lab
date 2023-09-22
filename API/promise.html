@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="text"></h1>
+    <h2 id="age"></h2>
+</body>
+<script>
+    const fnpr = (rerolve, reject) => {
+        var url = "https://65041af7c8869921ae24820d.mockapi.io/api/user/user";
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', url, true)
+        xhr.onload = function () {
+            var users = JSON.parse(xhr.responseText);
+            if (xhr.readyState == 4 && xhr.status == "200") {
+                rerolve(users)
+            } else {
+                console.error(users);
+            }
+        }
+        xhr.send(null);
+    }
+    const promise = new Promise(fnpr)
+
+    promise.then((data) => {
+        const text = document.getElementById("text")
+        //text.innerText = data
+
+        text.innerText = (data.map((item) => {
+            return item.name
+        }))
+        return (data.filter((item) => item.age === 18))
+
+
+    })
+        .then((data) => {
+            const text1 = document.getElementById("age")
+            text1.innerText = "-----------FILTER AGE 18 -----------------\n" + data.map((item) => `${item.name} - ${item.age}`).join('\n');
+
+        })
+
+
+</script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Update a user
+    var url = "https://65041af7c8869921ae24820d.mockapi.io/api/user/user";
+    var data = {};
+    data.name = "Quoc Trong Update";
+    data.age = 22
+    var json = JSON.stringify(data);
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", url + '/25', true);
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    xhr.onload = function () {
+        var users = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(users);
+        } else {
+            console.error(users);
+        }
+    }
+    xhr.send(json);
+
+</script>
+
+</html>
