@@ -1,96 +1,134 @@
-import { StatusBar } from 'expo-status-bar';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+
+import Bai1 from './screen/bai1';
+import Bai2 from './screen/Bai2';
+import Bai3 from './screen/Bai3';
+import Bai4 from './screen/Bai4';
+import Bai5 from './screen/Bai5';
+import Bai6 from './screen/Bai6';
+import Bai7 from './screen/Bai7';
+import Bai8 from './screen/Bai8';
+
+const Tab = createBottomTabNavigator();
+
+const screenOptions = {
+  tabBarShowLabel: false,
+  // headerShown: false,
+  tabBarStyle: {
+    backgroundColor: '#fff',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    elevation: 0,
+    height: 60
+  }
+}
 
 export default function App() {
   return (
-    <LinearGradient
-      // Background Linear Gradient
-      colors={['rgba(241,241,247,1)', 'rgba(255,255,255,1)', 'rgba(90,220,255,1)']}
-      style={styles.container}
-    >
-      <SafeAreaView style={styles.container}>
-        
-
-        <Image style={styles.image} source={{uri: "https://www.svgrepo.com/show/175586/circle-outline.svg"}}/>
-
-        <Text style={styles.textTitle}>GROW YOUR BUSINESS</Text>  
-
-        <Text style={styles.textDescription}>We will help you to grow your business using online server</Text>  
-        
-        <View style={styles.containerBtn}>
-        <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>SIGN UP</Text>
-          </TouchableOpacity>
-        </View>
-        
-      </SafeAreaView>
-    </LinearGradient>
-
+    <NavigationContainer independent={true}>
+      <Tab.Navigator screenOptions={screenOptions}>
+        <Tab.Screen 
+          name="Bai1" 
+          component={Bai1} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai1</Text>
+                </View>
+              )
+            }
+          }}/>
+        <Tab.Screen 
+          name="Bai2" 
+          component={Bai2} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai2</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai3" 
+          component={Bai3} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai3</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai4" 
+          component={Bai4} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai4</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai5" 
+          component={Bai5} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai5</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai6" 
+          component={Bai6} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai6</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai7" 
+          component={Bai7} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai7</Text>
+                </View>
+              )
+            }
+          }}/>
+          <Tab.Screen 
+          name="Bai8" 
+          component={Bai8} 
+          options={{
+            tabBarIcon: () => {
+              return (
+                <View>
+                  <Text>Bai8</Text>
+                </View>
+              )
+            }
+          }}/>
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
-    // backgroundImage: 'linear-gradient(to bottom, #00CCF9 0%, #00CCF9 58.04%, #00CCF9 69.79%, #00CCF9 36%, #00CCF9 100%)',
-  },
-  image: {
-    marginTop: '105px',
-    width: '140px',
-    height: '140px',
-    border: '15px'
-  },
-  textTitle: {
-    marginTop: '52px',
-    width: '189px',
-    height: '58px',
-    textAlign: 'center',
-    fontSize: '25px',
-    lineHeight: '29.3px',
-    fontWeight: 700,
-    color: '#000000'
-  },
-  textDescription: {
-    marginTop: '62px',
-    width: '302px',
-    height: '36px',
-    textAlign: 'center',
-    fontSize: '15px',
-    lineHeight: '17.58px',
-    fontWeight: 700,
-    color: '#000000'
-  },
-  containerBtn: {
-    width: '100%', 
-    height: '70px',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: '45px',
-    justifyContent: 'space-around',
-    marginTop: '50px',
-
-  },
-  btn: {
-    width: '119px',
-    height: '48px',
-    padding: '12px',
-    borderRadius: '10px',
-    backgroundColor: '#E3C000',
-    textAlign: 'center',
-    
-  }, 
-  btnText: {
-    textAlign: 'center',
-    fontSize: '20px',
-    lineHeight: '23.44px',
-    fontWeight: 700,
-    color: '#000000'
-  }
-});
