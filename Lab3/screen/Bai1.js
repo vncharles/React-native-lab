@@ -26,18 +26,9 @@ export default function Bai1({navigation}) {
             <Text style={styles.btnText}>SIGN UP</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.containerStack}>
-          <TouchableOpacity style={styles.btn}
-            title="Go to Jane's profile"
-            onPress={() =>
-              navigation.navigate('Bai2')
-            }
-          >
-            <Text style={styles.btnText}>Tiep</Text>
-          </TouchableOpacity>
+        <View style={styles.containerFooter}>
+          <Text style={styles.textFooter}>HOW WE WORK</Text>
         </View>
-        
-      
       </SafeAreaView>
     </LinearGradient>
 
@@ -53,9 +44,9 @@ const styles = StyleSheet.create({
     // backgroundImage: 'linear-gradient(to bottom, #00CCF9 0%, #00CCF9 58.04%, #00CCF9 69.79%, #00CCF9 36%, #00CCF9 100%)',
   },
   image: {
-    marginTop: '105px',
-    width: '140px',
-    height: '140px',
+    marginTop: '69px',
+    width: '142px',
+    height: '142px',
     border: '15px'
   },
   textTitle: {
@@ -65,7 +56,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: '25px',
     lineHeight: '29.3px',
-    fontWeight: 700,
+    fontWeight: 800,
     color: '#000000'
   },
   textDescription: {
@@ -105,13 +96,17 @@ const styles = StyleSheet.create({
     color: '#000000'
   },
 
-  containerStack: {
-    width: '100%', 
-    height: '70px',
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-    marginTop: '45px',
-    justifyContent: 'space-between',
-    marginTop: '50px',
+  containerFooter: {
+    width: '302px',
+    height: '53px',
+    textAlign: 'center',
+    marginTop: '15px'
   },
+  textFooter: {
+    textAlign: 'center',
+    fontSize: '18px',
+    lineHeight: '21.09px',
+    fontWeight: 700,
+    color: '#000000'
+  }
 });

@@ -1,96 +1,207 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+  Button,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+
+import { AntDesign } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
+
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import { LinearGradient } from "expo-linear-gradient";
+import { Link } from "@react-navigation/native";
 
 export default function Bai8() {
   return (
     <LinearGradient
-      // Background Linear Gradient
-      colors={['rgba(241,241,247,1)', 'rgba(255,255,255,1)', 'rgba(90,220,255,1)']}
-      style={styles.container}
+      colors={["rgba(255,255,255,1)", "rgba(255,255,255,1)"]}
+      style={styles.gradientBackground}
     >
-      <SafeAreaView style={styles.container}>
-        
+      <View style={styles.container}>
+        <Image
+          style={{ width: 120, height: 120 }}
+          source={{ uri: "https://pngimg.com/d/eye_PNG35637.png" }}
+        ></Image>
+        {/* input */}
+        <View
+          style={{
+            width: "100%",
+            height: "20vh",
+            alignItems: "center",
+            rowGap: 9,
+          }}
+        >
+          <View style={styles.searchSection}>
+            <MaterialCommunityIcons name="email" size={24} color="black" />
 
-        <Image style={styles.image} source={{uri: "https://www.svgrepo.com/show/175586/circle-outline.svg"}}/>
-
-        <Text style={styles.textTitle}>YOUUUUUU</Text>  
-
-        <Text style={styles.textDescription}>iness using online server</Text>  
-        
-        <View style={styles.containerBtn}>
-        <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>SIGN UP</Text>
-          </TouchableOpacity>
+            <TextInput
+              style={styles.input}
+              placeholder="Please in put user name"
+              // underlineColorAndroid="transparent"
+            />
+          </View>
+          {/* pass */}
+          <View style={styles.searchSection}>
+            <Entypo name="lock" size={24} color="black" />
+            <TextInput
+              style={styles.input}
+              placeholder="Please input your password"
+              // underlineColorAndroid="transparent"
+            />
+          </View>
         </View>
-        
-      </SafeAreaView>
-    </LinearGradient>
+        {/* inpt */}
 
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
+
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "flex-start",
+            columnGap: 50,
+            width: "100%",
+          }}
+        >
+          <Text
+            style={{
+              width: 100,
+              alignItems: "flex-start",
+              marginLeft: 50,
+              justifyContent: "flex-start",
+            }}
+          >
+            Register{" "}
+          </Text>
+          <Text
+            style={{ width: "100%", alignItems: "flex-end", marginLeft: 80 }}
+          >
+            Forget your password ?{" "}
+          </Text>
+        </View>
+
+        <Text>-------------Orther Login Method---------</Text>
+
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={{
+              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/640px-Facebook_Logo_%282019%29.png",
+            }}
+          />
+          <Image
+            style={styles.logo}
+            source={{
+              uri: "https://inkythuatso.com/uploads/thumbnails/800/2021/09/zalo-logo-inkythuatso-14-15-05-01.jpg",
+            }}
+          />
+          <Image
+            style={styles.logo}
+            source={{
+              uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png",
+            }}
+          />
+        </View>
+
+        <StatusBar style="auto" />
+      </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  gradientBackground: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
-    // backgroundImage: 'linear-gradient(to bottom, #00CCF9 0%, #00CCF9 58.04%, #00CCF9 69.79%, #00CCF9 36%, #00CCF9 100%)',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "transparent",
   },
-  image: {
-    marginTop: '105px',
-    width: '140px',
-    height: '140px',
-    border: '15px'
+  tinyLogo: {
+    height: 200,
+    width: 200,
   },
-  textTitle: {
-    marginTop: '52px',
-    width: '189px',
-    height: '58px',
-    textAlign: 'center',
-    fontSize: '25px',
-    lineHeight: '29.3px',
-    fontWeight: 700,
-    color: '#000000'
+  texth3: {
+    fontSize: 17,
+    fontWeight: "bold",
+    // width: 100,
+    width: "90%",
+    textAlign: "center",
   },
-  textDescription: {
-    marginTop: '62px',
-    width: '302px',
-    height: '36px',
-    textAlign: 'center',
-    fontSize: '15px',
-    lineHeight: '17.58px',
-    fontWeight: 700,
-    color: '#000000'
+  buttonContainer: {
+    flexDirection: "row",
   },
-  containerBtn: {
-    width: '100%', 
-    height: '70px',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: '45px',
-    justifyContent: 'space-around',
-    marginTop: '50px',
+  searchSection: {
+    flexDirection: "row",
+  },
+  texth1: {
+    fontSize: 30,
+    fontWeight: "bold",
+    // width: 200,
+    textAlign: "center",
+  },
+  button: {
+    // padding: 10,
+    paddingHorizontal: "35%",
+    paddingVertical: 15,
 
+    backgroundColor: "#13e0ff",
+    // marginHorizontal: 50,
+    alignItems: "center",
+    borderRadius: 3,
+    justifyContent: "center",
   },
-  btn: {
-    width: '119px',
-    height: '48px',
-    padding: '12px',
-    borderRadius: '10px',
-    backgroundColor: '#E3C000',
-    textAlign: 'center',
-    
-  }, 
-  btnText: {
-    textAlign: 'center',
-    fontSize: '20px',
-    lineHeight: '23.44px',
-    fontWeight: 700,
-    color: '#000000'
-  }
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+
+  logoContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    // borderWidth: 1,
+    width: "100%",
+    padding: 15,
+    justifyContent: "center",
+    columnGap: "1em",
+  },
+  searchSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderBottomWidth: 1,
+    width: "80%",
+    padding: 15,
+    borderBottomColor: "gray",
+  },
+
+  logo: {
+    justifyContent: "row",
+    alignItems: "center",
+    // borderColor: "black",
+    // borderWidth: 1,
+    width: 60,
+    // padding: 15,
+
+    height: 60,
+    // marginLeft: 10, // Khoảng cách giữa input và biểu tượng
+  },
+  input: {
+    flex: 1, // Kích thước ô input sẽ đổ full chiều rộng còn lại
+    marginLeft: 10, // Khoảng cách giữa input và biểu tượng
+  },
+  textForget: {
+    color: "purple",
+    fontSize: "13px",
+  },
 });

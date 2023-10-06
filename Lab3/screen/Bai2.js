@@ -1,96 +1,114 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { StatusBar } from "expo-status-bar";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Image,
+  TouchableOpacity,
+  TextInput,
+} from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function Bai1() {
+import { LinearGradient } from "expo-linear-gradient";
+
+export default function Bai2({navigation}) {
   return (
     <LinearGradient
-      // Background Linear Gradient
-      colors={['rgba(241,241,247,1)', 'rgba(255,255,255,1)', 'rgba(90,220,255,1)']}
-      style={styles.container}
+      colors={["rgba(0,156,199,1)", "rgba(255,255,255,1)", "rgba(1,149,223,1)"]}
+      style={styles.gradientBackground}
     >
-      <SafeAreaView style={styles.container}>
-        
+      <View style={styles.container}>
+        <Image
+          style={styles.tinyLogo}
+          source={{
+            uri: "https://cdn-icons-png.flaticon.com/512/61/61457.png",
+          }}
+        />
+        <Text style={styles.texth1}>FORGET{"\n"}PASSWORD</Text>
 
-        <Image style={styles.image} source={{uri: "https://www.svgrepo.com/show/175586/circle-outline.svg"}}/>
+        <Text style={styles.texth3}>
+          Provide your account’s email for which you want to reset your password
+        </Text>
 
-        <Text style={styles.textTitle}>YOUUUUUU</Text>  
-
-        <Text style={styles.textDescription}>iness using online server</Text>  
-        
-        <View style={styles.containerBtn}>
-        <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>LOGIN</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.btn}>
-            <Text style={styles.btnText}>SIGN UP</Text>
-          </TouchableOpacity>
+        <View style={styles.searchSection}>
+          <MaterialCommunityIcons
+            name="email-outline"
+            size={24}
+            color="black"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            // underlineColorAndroid="transparent"
+          />
         </View>
-        
-      </SafeAreaView>
-    </LinearGradient>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>NEXT</Text>
+        </TouchableOpacity>
 
+        <StatusBar style="auto" />
+      </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  gradientBackground: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: 'transparent',
-    // backgroundImage: 'linear-gradient(to bottom, #00CCF9 0%, #00CCF9 58.04%, #00CCF9 69.79%, #00CCF9 36%, #00CCF9 100%)',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "space-around",
+    backgroundColor: "transparent",
   },
-  image: {
-    marginTop: '105px',
-    width: '140px',
-    height: '140px',
-    border: '15px'
+  tinyLogo: {
+    height: 200,
+    width: 200,
   },
-  textTitle: {
-    marginTop: '52px',
-    width: '189px',
-    height: '58px',
-    textAlign: 'center',
-    fontSize: '25px',
-    lineHeight: '29.3px',
-    fontWeight: 700,
-    color: '#000000'
+  texth3: {
+    fontSize: 17,
+    fontWeight: "bold",
+    // width: 100,
+    width: "90%",
+    textAlign: "center",
   },
-  textDescription: {
-    marginTop: '62px',
-    width: '302px',
-    height: '36px',
-    textAlign: 'center',
-    fontSize: '15px',
-    lineHeight: '17.58px',
-    fontWeight: 700,
-    color: '#000000'
+  buttonContainer: {
+    flexDirection: "row",
   },
-  containerBtn: {
-    width: '100%', 
-    height: '70px',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    marginTop: '45px',
-    justifyContent: 'space-around',
-    marginTop: '50px',
+  texth1: {
+    fontSize: 30,
+    fontWeight: "bold",
+    // width: 200,
+    textAlign: "center",
+  },
+  button: {
+    // padding: 10,
+    paddingHorizontal: "35%",
+    paddingVertical: 15,
 
+    backgroundColor: "#F1C93B",
+    // marginHorizontal: 50,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  btn: {
-    width: '119px',
-    height: '48px',
-    padding: '12px',
-    borderRadius: '10px',
-    backgroundColor: '#E3C000',
-    textAlign: 'center',
-    
-  }, 
-  btnText: {
-    textAlign: 'center',
-    fontSize: '20px',
-    lineHeight: '23.44px',
-    fontWeight: 700,
-    color: '#000000'
-  }
+  buttonText: {
+    fontWeight: "bold",
+    fontSize: 20,
+  },
+  searchSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    // borderWidth: 1,
+    borderColor: "black",
+    width: "80%",
+    padding: 15,
+    backgroundColor: "gray",
+  },
+  input: {
+    flex: 1, // Kích thước ô input sẽ đổ full chiều rộng còn lại
+    marginLeft: 10, // Khoảng cách giữa input và biểu tượng
+  },
 });

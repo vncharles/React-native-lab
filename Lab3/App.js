@@ -16,7 +16,7 @@ const Tab = createBottomTabNavigator();
 
 const screenOptions = {
   tabBarShowLabel: false,
-  // headerShown: false,
+  headerShown: false,
   tabBarStyle: {
     backgroundColor: '#fff',
     position: 'absolute',
